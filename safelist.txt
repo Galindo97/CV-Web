@@ -89,15 +89,18 @@ bg-zinc-500
 
 <!-- Light mode theme -->
 text-slate-700 text-slate-800 text-slate-900
-text-gray-700 text-gray-800 text-gray-900
-bg-slate-200 bg-slate-300 bg-slate-400
-bg-gray-200 bg-gray-300 bg-gray-400
-bg-zinc-300
-border-slate-300 border-slate-400 border-slate-500
-border-slate-300/70 border-slate-300/50
-hover:border-slate-400 hover:border-slate-500 hover:border-slate-400/50
+text-gray-700 text-gray-800 text-gray-900 text-gray-600
+text-blue-600
+bg-slate-100 bg-slate-200 bg-blue-200 bg-gray-200
+bg-white bg-slate-50
+border-slate-200 border-slate-300 border-slate-400
+hover:border-slate-400 hover:border-slate-500 hover:border-slate-400/50 hover:border-blue-400
 from-slate-200/50 to-slate-200/50
 from-gray-200/50 to-gray-200/50
+from-blue-50/30 to-blue-50/30
+from-slate-50/30 to-slate-50/30
+from-white via-white to-white
+from-slate-50 via-slate-50 to-slate-50
 shadow-slate-500/20 shadow-slate-500/50
 
 <!-- Additional card/button backgrounds for light mode -->

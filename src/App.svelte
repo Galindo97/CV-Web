@@ -128,21 +128,21 @@
       name: 'Modo Claro',
       primary: 'slate',
       secondary: 'gray',
-      gradient: 'from-slate-200/50 to-gray-200/50',
-      orb1: 'bg-slate-300',
-      orb2: 'bg-gray-300',
-      orb3: 'bg-zinc-300',
-      text: 'text-slate-800',
-      textSecondary: 'text-gray-700',
-      border: 'border-slate-300/50',
-      hoverBorder: 'hover:border-slate-400/50',
-      cardBg: 'bg-white/90',
-      cardBorder: 'border-slate-300/70',
-      buttonBg: 'bg-white/80',
-      buttonBorder: 'border-slate-300/50',
-      hoverButtonBg: 'hover:bg-slate-100/50',
-      iconBg: 'bg-slate-200',
-      baseBg: 'from-gray-50 via-slate-50 to-gray-100',
+      gradient: 'from-blue-50/30 to-slate-50/30',
+      orb1: 'bg-blue-200',
+      orb2: 'bg-slate-200',
+      orb3: 'bg-gray-200',
+      text: 'text-blue-600',
+      textSecondary: 'text-slate-700',
+      border: 'border-slate-200',
+      hoverBorder: 'hover:border-blue-400',
+      cardBg: 'bg-white',
+      cardBorder: 'border-slate-200',
+      buttonBg: 'bg-white',
+      buttonBorder: 'border-slate-200',
+      hoverButtonBg: 'hover:bg-slate-50',
+      iconBg: 'bg-slate-100',
+      baseBg: 'from-white via-white to-slate-50',
       baseText: 'text-gray-900',
       secondaryText: 'text-gray-700',
       tertiaryText: 'text-gray-600'
@@ -281,24 +281,27 @@
 
   <!-- Theme Selector Panel -->
   {#if showThemeSelector}
-    <div class="fixed top-20 right-4 z-50 {theme.buttonBg} backdrop-blur-sm rounded-xl border {theme.buttonBorder} p-4 shadow-2xl animate-fadeIn">
+    <button
+      type="button"
+      class="fixed inset-0 z-40 bg-transparent"
+      aria-label="Cerrar selector de tema"
+      on:click={() => showThemeSelector = false}
+      on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && (showThemeSelector = false)}
+      tabIndex="0"
+      style="all:unset;position:fixed;inset:0;z-index:40;cursor:pointer;"
+    ></button>
+    <div
+      class="fixed top-20 right-4 z-50 {theme.buttonBg} backdrop-blur-sm rounded-xl border {theme.buttonBorder} p-4 shadow-2xl animate-fadeIn"
+    >
       <h3 class="text-lg font-bold {theme.baseText} mb-3">Elegir Tema</h3>
-      <div class="space-y-2">
+      <div class="flex flex-col gap-2">
         {#each Object.entries(themes) as [key, themeOption]}
           <button
+            class="flex items-center gap-2 px-3 py-2 rounded-lg border {themeOption.border} hover:{themeOption.hoverBorder} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-{themeOption.primary}-400"
             on:click={() => changeTheme(key)}
-            class="w-full flex items-center gap-3 p-3 rounded-lg transition-all duration-300 {currentTheme === key ? 'bg-slate-700 border-2 border-' + themeOption.primary + '-500' : 'bg-slate-700/50 border-2 border-transparent hover:bg-slate-700'}"
           >
-            <div class="flex gap-1">
-              <div class="w-4 h-4 rounded-full bg-{themeOption.primary}-500"></div>
-              <div class="w-4 h-4 rounded-full bg-{themeOption.secondary}-500"></div>
-            </div>
-            <span class="{theme.baseText} font-medium">{themeOption.name}</span>
-            {#if currentTheme === key}
-              <svg class="w-5 h-5 ml-auto text-{themeOption.primary}-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-            {/if}
+            <span class="w-4 h-4 rounded-full block {themeOption.orb1} border-2 {themeOption.border}"></span>
+            <span class="{themeOption.text} font-medium">{themeOption.name}</span>
           </button>
         {/each}
       </div>
@@ -801,14 +804,14 @@
   .bg-animated-slate {
     background: linear-gradient(
       135deg,
-      #f1f5f9 0%,
-      #e2e8f0 15%,
-      #cbd5e1 30%,
-      #e2e8f0 45%,
-      #d1d5db 60%,
-      #e2e8f0 75%,
-      #cbd5e1 90%,
-      #f1f5f9 100%
+      #ffffff 0%,
+      #f8fafc 15%,
+      #f1f5f9 30%,
+      #f8fafc 45%,
+      #ffffff 60%,
+      #f8fafc 75%,
+      #f1f5f9 90%,
+      #ffffff 100%
     );
     background-size: 400% 400%;
     animation: bgShift 45s ease-in-out infinite;
